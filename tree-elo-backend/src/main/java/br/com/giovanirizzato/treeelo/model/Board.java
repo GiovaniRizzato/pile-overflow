@@ -1,5 +1,6 @@
 package br.com.giovanirizzato.treeelo.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import br.com.giovanirizzato.treeelo.model.security.User;
@@ -21,6 +22,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Board{
 
+	public record CreateDto(
+		String name) {
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)     
 	private Integer id;
@@ -35,5 +40,5 @@ public class Board{
 		name = "board_user_access", 
 		joinColumns = @JoinColumn(name = "BOARD_id"), 
 		inverseJoinColumns = @JoinColumn(name = "APPLICATION_USER_id"))
-	private Set<User> usersWithAccess;
+	private Set<User> usersWithAccess = new HashSet<>();
 }

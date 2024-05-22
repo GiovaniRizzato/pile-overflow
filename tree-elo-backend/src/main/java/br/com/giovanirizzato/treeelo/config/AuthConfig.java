@@ -30,9 +30,8 @@ public class AuthConfig {
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .authorizeHttpRequests(authorize -> authorize
             .anyRequest()
-            .anonymous()
-        ).addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
-        .build();
+            .permitAll()
+        ).build();
   }
 
   @Bean

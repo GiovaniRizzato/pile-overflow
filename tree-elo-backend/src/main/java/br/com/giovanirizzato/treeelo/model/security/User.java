@@ -1,6 +1,7 @@
 package br.com.giovanirizzato.treeelo.model.security;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -52,7 +53,7 @@ public class User implements UserDetails {
   private String password;
 
   @ManyToMany(mappedBy = "usersWithAccess")
-	private Set<Board> accessibleBoards;
+	private Set<Board> accessibleBoards = new HashSet<>();
 
   @Enumerated(EnumType.STRING)
   private UserRole role;
