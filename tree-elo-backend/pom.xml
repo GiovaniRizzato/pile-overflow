@@ -93,12 +93,6 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
-	
-   <dependency>
-     <groupId>io.tiklab</groupId>
-     <artifactId>tiklab-security-server</artifactId>
-     <version>1.0.0.3</version>
-   </dependency>
  </dependencies>
 
 	<build>
@@ -117,5 +111,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
