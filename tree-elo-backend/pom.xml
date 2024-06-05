@@ -61,6 +61,20 @@
 			<artifactId>java-jwt</artifactId>
 			<version>${jwt.version}</version>
 		</dependency>
+		<!-- Messaging -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-artemis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>artemis-jakarta-server</artifactId>
+			<version>2.31.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
 		<!-- Testing -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -79,12 +93,6 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
-	
-   <dependency>
-     <groupId>io.tiklab</groupId>
-     <artifactId>tiklab-security-server</artifactId>
-     <version>1.0.0.3</version>
-   </dependency>
  </dependencies>
 
 	<build>
@@ -103,5 +111,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
