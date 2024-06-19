@@ -1,11 +1,12 @@
 package br.com.giovanirizzato.treeelo.controller.security;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +31,7 @@ public class AuthController {
   private TokenProvider tokenService;
 
   @PostMapping("/signup")
-  public ResponseEntity<?> signUp(@RequestBody @Validated SignUpDto data) {
+  public ResponseEntity<?> signUp(@RequestBody @Valid SignUpDto data) {
     try {
       service.signUp(data);
       return ResponseEntity.status(HttpStatus.CREATED).build();
@@ -40,7 +41,7 @@ public class AuthController {
   }
 
   @PostMapping("/signin")
-  public ResponseEntity<JwtDto> signIn(@RequestBody @Validated SignInDto data) {
+  public ResponseEntity<JwtDto> signIn(@RequestBody @Valid SignInDto data) {
     var usernamePassword = new UsernamePasswordAuthenticationToken(data.login(), data.password());
     var authUser = authenticationManager.authenticate(usernamePassword);
     var accessToken = tokenService.generateAccessToken((User) authUser.getPrincipal());

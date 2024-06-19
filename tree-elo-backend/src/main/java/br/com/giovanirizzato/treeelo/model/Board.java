@@ -1,8 +1,6 @@
 package br.com.giovanirizzato.treeelo.model;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import br.com.giovanirizzato.treeelo.model.security.User;
@@ -14,7 +12,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,9 +31,6 @@ public class Board{
 	private Integer id;
 
 	private String name;
-
-	@OneToMany(mappedBy = "board")
-	private List<Column> columns = new ArrayList<>();
 
 	@ManyToOne
 	private User owner;
